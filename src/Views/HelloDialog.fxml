@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HelloDialogController">
+    <stylesheets>
+        <URL value="@hellodialog.css" />
+    </stylesheets>
+   <children>
+      <Pane fx:id="pane" prefHeight="720.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0">
+         <children>
+            <ImageView fx:id="imgView" fitHeight="720.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/bg.png" />
+               </image>
+            </ImageView>
+            <JFXProgressBar fx:id="prosessBar" layoutY="695.0" prefHeight="25.0" prefWidth="1080.0" progress="1.0" />
+            <Label layoutX="450.0" layoutY="605.0" prefHeight="49.0" prefWidth="164.0" text="Vui lòng chờ " textFill="#faf5f5">
+               <font>
+                  <Font name="System Bold Italic" size="23.0" />
+               </font>
+            </Label>
+            <JFXSpinner layoutX="598.0" layoutY="611.0" prefHeight="37.0" prefWidth="33.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

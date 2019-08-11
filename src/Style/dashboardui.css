@@ -1,0 +1,61 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.header{
+/*  -fx-background-color:  linear-gradient(to right bottom,  #2998ff,  #5643fa);*/
+
+  -fx-background-color: linear-gradient(to right bottom,  #7ed56f,  #28b485);
+/*   -fx-background-color: linear-gradient(to right bottom,  #ff3366,  #ba265d);
+   -fx-background-color: linear-gradient(to right bottom,  #ffca28,  #f57c00);*/
+   
+}
+
+.searchBar{
+    -fx-border-style: solid;
+    -fx-border-color: #FFFFFF;
+    -fx-border-radius: 10px;
+}
+
+#searchTxT{
+    -fx-background-color: transparent;
+}
+
+.iconInHeader{
+    -fx-fill:  #ffffff;
+}
+
+#avatar{
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 50%;
+    
+    
+}
+
+.navBar{
+
+     -fx-background-color: linear-gradient(to right bottom,  #7ed56f,  #28b485);
+}
+
+.buttonNav{
+    -fx-background-color: transparent;
+    -fx-text-fill:  #ffffff;
+}
+.buttonNav:hover{
+    -fx-background-color: linear-gradient(to left bottom,  #7ed56f,  #28b485);
+    
+   
+}
+
+.choiseImg {
+    -fx-background-color: linear-gradient(to left bottom,  #7ed56f,  #28b485);
+}
+
+
+.buttonAdd{
+    -fx-background-color: linear-gradient(to left bottom,  #ff3366,  #ba265d);
+}

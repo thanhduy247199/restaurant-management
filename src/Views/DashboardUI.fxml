@@ -1,0 +1,1285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="mainLayout" prefHeight="899.0" prefWidth="1576.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DashboardUIController">
+    <stylesheets>
+        <URL value="@dashboardui.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane fx:id="header" prefHeight="38.0" prefWidth="1576.0" styleClass="header" stylesheets="@../Style/dashboardui.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="50.0" prefWidth="1578.0" style="-fx-background-color: transparent;" styleClass="header" stylesheets="@../Style/dashboardui.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <FontAwesomeIcon fill="#f4f2f8" glyphName="BARS" size="2em">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </FontAwesomeIcon>
+                  <Label prefHeight="26.0" prefWidth="234.0" text="SuBee Restaurant Manager" textFill="#fbfafd">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="940.0">
+                     <children>
+                        <Pane layoutX="232.0" layoutY="7.0" prefHeight="37.0" prefWidth="387.0" styleClass="searchBar" stylesheets="@../Style/dashboardui.css">
+                           <children>
+                              <FontAwesomeIcon fill="#f8f3f3" glyphName="SEARCH" layoutX="356.0" layoutY="24.0" size="1.5em" />
+                              <TextField id="searchTxT" layoutX="15.0" prefHeight="37.0" prefWidth="334.0" promptText="nhập từ khóa tìm kiếm ..." stylesheets="@../Style/dashboardui.css">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="361.0">
+                     <children>
+                        <FontAwesomeIcon fill="#fffefe" glyphName="BELL" size="2em" styleClass="iconInHeader">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </FontAwesomeIcon>
+                        <Button fx:id="settingBtn" mnemonicParsing="false" onAction="#loadSettingAction" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <FontAwesomeIcon fill="#fffefe" glyphName="COG" onMouseClicked="#loadSettingAction" size="2em" styleClass="iconInHeader">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </FontAwesomeIcon>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="10.0" right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Circle id="avatar" fx:id="avatar" fill="#f8f9fa" radius="18.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Circle>
+                        <Label text="Thanh Duy" textFill="#f5f3f8">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="article" prefHeight="200.0" prefWidth="200.0" styleClass="navBar" stylesheets="@../Style/dashboardui.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <HBox prefHeight="849.0" prefWidth="1600.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="320.0" style="-fx-background-color: transparent;" stylesheets="@../Style/dashboardui.css">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="197.0" prefWidth="320.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/Logo.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="652.0" prefWidth="308.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#dashboardBtnAction" prefHeight="70.0" prefWidth="322.0" styleClass="buttonNav" stylesheets="@../Style/dashboardui.css" text=" Bảng điều khiển">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/analytics.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets right="120.0" />
+                                 </padding>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#foodBtnAction" prefHeight="70.0" prefWidth="322.0" styleClass="buttonNav" stylesheets="@../Style/dashboardui.css" text=" Quản lý món ăn">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/plate-fork-and-knife.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets right="120.0" top="5.0" />
+                                 </padding>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#tableBtnAction" prefHeight="70.0" prefWidth="322.0" styleClass="buttonNav" stylesheets="@../Style/dashboardui.css" text=" Quản lý bàn ăn">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/table.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets right="120.0" />
+                                 </padding>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#menuBtnAction" prefHeight="70.0" prefWidth="322.0" styleClass="buttonNav" stylesheets="@../Style/dashboardui.css" text="Quản lý thực đơn">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/menu.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets right="120.0" />
+                                 </padding>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#billBtnAction" prefHeight="70.0" prefWidth="322.0" styleClass="buttonNav" stylesheets="@../Style/dashboardui.css" text="Quản lý hóa đơn">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/bill.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets right="120.0" />
+                                 </padding>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="322.0" styleClass="buttonNav" stylesheets="@../Style/dashboardui.css" text="Đăng xuất">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/logout.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets right="160.0" />
+                                 </padding>
+                              </Button>
+                              <VBox alignment="BOTTOM_LEFT" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Text fill="#f0eaea" strokeType="OUTSIDE" strokeWidth="0.0" text="© copyright Thanh Duy">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <VBox fx:id="BDKPane" alignment="CENTER" prefHeight="850.0" prefWidth="1280.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="113.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Label prefHeight="43.0" prefWidth="286.0" text=" Bảng điều khiển" textFill="#ba5aa7">
+                                       <HBox.margin>
+                                          <Insets left="50.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/home.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Label>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="114.0" prefWidth="1006.0" style="-fx-background-color: #FFFFFF;">
+                                       <children>
+                                          <Text fill="#ba5aa7" strokeType="OUTSIDE" strokeWidth="0.0" text="Chọn Tháng">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" right="20.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <JFXComboBox fx:id="dateCombobox1" prefHeight="26.0" prefWidth="246.0">
+                                             <HBox.margin>
+                                                <Insets right="100.0" />
+                                             </HBox.margin>
+                                          </JFXComboBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox prefHeight="694.0" prefWidth="1298.0">
+                                       <children>
+                                          <LineChart fx:id="lineChartTxT1" prefHeight="385.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" title="Bảng thống kê doanh thu">
+                                             <xAxis>
+                                                <CategoryAxis side="BOTTOM" style="-fx-background-color: #FFFFFF;" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis side="LEFT" style="-fx-background-color: #FFFFFF;" />
+                                             </yAxis>
+                                          </LineChart>
+                                          <HBox alignment="CENTER" prefHeight="346.0" prefWidth="1280.0" style="-fx-background-color: FFFFFF;" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <VBox alignment="TOP_CENTER" prefHeight="280.0" prefWidth="306.0" style="-fx-background-color: #E9E9E9;">
+                                                   <children>
+                                                      <HBox alignment="CENTER" prefHeight="83.0" prefWidth="306.0" style="-fx-background-color: #FFBB00;">
+                                                         <children>
+                                                            <Text fill="#faf8f8" stroke="#a8363604" strokeType="OUTSIDE" strokeWidth="0.0" text="Tổng Hóa Đơn" textAlignment="CENTER" wrappingWidth="305.33674240112305">
+                                                               <font>
+                                                                  <Font size="24.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="178.0" prefWidth="306.0" style="-fx-background-color: #E9E9E9;">
+                                                         <children>
+                                                            <ImageView fitHeight="138.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../img/invoice.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </children>
+                                                      </HBox>
+                                                      <Text fx:id="billTxT1" fill="#ed570d" strokeType="OUTSIDE" strokeWidth="0.0" text="400">
+                                                         <font>
+                                                            <Font name="System Bold" size="29.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="5.0" top="5.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets bottom="20.0" top="20.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="256.0" prefWidth="306.0" style="-fx-background-color: #E9E9E9;">
+                                                   <children>
+                                                      <HBox alignment="CENTER" prefHeight="83.0" prefWidth="306.0" style="-fx-background-color: #3A50B1;">
+                                                         <children>
+                                                            <Text fill="#faf8f8" stroke="#a8363604" strokeType="OUTSIDE" strokeWidth="0.0" text="Tổng Thức Food" textAlignment="CENTER" wrappingWidth="305.33674240112305">
+                                                               <font>
+                                                                  <Font size="24.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="178.0" prefWidth="306.0" style="-fx-background-color: #E9E9E9;">
+                                                         <children>
+                                                            <ImageView fitHeight="138.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../img/food.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </children>
+                                                      </HBox>
+                                                      <Text fx:id="foodTxT1" fill="#ed570d" strokeType="OUTSIDE" strokeWidth="0.0" text="120">
+                                                         <font>
+                                                            <Font name="System Bold" size="29.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="256.0" prefWidth="306.0" style="-fx-background-color: #E9E9E9;">
+                                                   <children>
+                                                      <HBox alignment="CENTER" prefHeight="83.0" prefWidth="306.0" style="-fx-background-color: #A63AB6;">
+                                                         <children>
+                                                            <Text fill="#faf8f8" stroke="#a8363604" strokeType="OUTSIDE" strokeWidth="0.0" text="Tổng Doanh Thu" textAlignment="CENTER" wrappingWidth="305.33674240112305">
+                                                               <font>
+                                                                  <Font size="24.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="178.0" prefWidth="306.0" style="-fx-background-color: #E9E9E9;">
+                                                         <children>
+                                                            <ImageView fitHeight="138.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../img/money-bag.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </children>
+                                                      </HBox>
+                                                      <Text fx:id="moneyTxT1" fill="#ed570d" strokeType="OUTSIDE" strokeWidth="0.0" text="5000$">
+                                                         <font>
+                                                            <Font name="System Bold" size="29.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets bottom="20.0" top="20.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="FoodPane" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #666666;">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="113.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;">
+                                 <children>
+                                    <Label prefHeight="43.0" prefWidth="286.0" style="-fx-text-fill: linear-gradient(to left bottom,  #7ed56f,  #28b485);" text="Quản lý món ăn" textFill="#ba5aa7">
+                                       <HBox.margin>
+                                          <Insets left="50.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/foodColor.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Label>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="114.0" prefWidth="1006.0" style="-fx-background-color: #FFFFFF;">
+                                       <children>
+                                          <Text fill="#ba5aa7" strokeType="OUTSIDE" strokeWidth="0.0" text="Tìm kiếm">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <JFXTextField prefHeight="30.0" prefWidth="260.0" promptText="nhập từ khóa tìm kiếm">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </JFXTextField>
+                                          <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/magnifier.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets right="30.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="745.0" prefWidth="1256.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="742.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF;">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ADD FOOD" wrappingWidth="177.11566162109375">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="32.0" />
+                                                   </font>
+                                                   <fill>
+                                                      <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0">
+                                                         <stops>
+                                                            <Stop color="#28358f" />
+                                                            <Stop color="#28358f" offset="0.01526717557251903" />
+                                                            <Stop color="#6494c7" offset="1.0" />
+                                                         </stops>
+                                                      </LinearGradient>
+                                                   </fill>
+                                                </Text>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/dog-tag.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Text fill="#6f4848" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên" wrappingWidth="49.33673095703125">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <JFXTextField prefHeight="38.0" prefWidth="180.0" promptText="Nhập tên món ăn">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                </JFXTextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/price-tag.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Text fill="#6f4848" strokeType="OUTSIDE" strokeWidth="0.0" text="Giá" wrappingWidth="49.33673095703125">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <JFXTextField prefHeight="38.0" prefWidth="180.0" promptText="Nhập giá">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                </JFXTextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/diet.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Text fill="#6f4848" strokeType="OUTSIDE" strokeWidth="0.0" text="Loại" wrappingWidth="49.33673095703125">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <JFXComboBox prefHeight="38.0" prefWidth="180.0" promptText="Chọn loại thức ăn">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                </JFXComboBox>
+                                             </children>
+                                          </HBox>
+                                          <VBox alignment="CENTER" prefHeight="271.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/cupcake.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <JFXButton prefHeight="30.0" prefWidth="188.0" styleClass="choiseImg" stylesheets="@../Style/dashboardui.css" text="Chọn ảnh" textFill="#fdf9f9">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/image.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </JFXButton>
+                                             </children>
+                                          </VBox>
+                                          <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <JFXButton prefHeight="50.0" prefWidth="226.0" styleClass="buttonAdd" stylesheets="@../Style/dashboardui.css" text="Thêm món ăn" textFill="#faf2f2">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                   <graphic>
+                                                      <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/foodAdd.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </JFXButton>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <JFXTreeTableView prefHeight="743.0" prefWidth="956.0" VBox.vgrow="ALWAYS">
+                                             <columns>
+                                                <TreeTableColumn prefWidth="128.00006103515625" text="Tên món ăn">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/dog-tag.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn minWidth="7.20001220703125" prefWidth="104.0" text="Giá">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/price-tag.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="120.800048828125" text="Ngày tạo">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/calendar.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="114.40008544921875" text="Ngày sửa">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/calendarEdit.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="137.5999755859375" text="Ảnh">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/image.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="93.5999755859375" text="Order">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/smartphone.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="92.0" text="Loại">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/diet.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="168.0" text="Thao tác">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/test.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                             </columns>
+                                          </JFXTreeTableView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </VBox>
+                        <VBox fx:id="MenuPane" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #666666;">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="113.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;">
+                                 <children>
+                                    <Label prefHeight="43.0" prefWidth="286.0" style="-fx-text-fill: linear-gradient(to right bottom,  #7ed56f,  #28b485);" text="Quản lý thực đơn" textFill="#ba5aa7">
+                                       <HBox.margin>
+                                          <Insets left="50.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/menu2.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Label>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="114.0" prefWidth="1006.0" style="-fx-background-color: #FFFFFF;">
+                                       <children>
+                                          <Text fill="#ba5aa7" strokeType="OUTSIDE" strokeWidth="0.0" text="Tìm kiếm">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <JFXTextField prefHeight="30.0" prefWidth="260.0" promptText="nhập từ khóa tìm kiếm">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </JFXTextField>
+                                          <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/magnifier.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets right="30.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="745.0" prefWidth="1256.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="742.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF;">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ADD MENU" wrappingWidth="177.11566162109375">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="32.0" />
+                                                   </font>
+                                                   <fill>
+                                                      <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0">
+                                                         <stops>
+                                                            <Stop color="#28358f" />
+                                                            <Stop color="#28358f" offset="0.01526717557251903" />
+                                                            <Stop color="#6494c7" offset="1.0" />
+                                                         </stops>
+                                                      </LinearGradient>
+                                                   </fill>
+                                                </Text>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/prawn.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Text fill="#6f4848" strokeType="OUTSIDE" strokeWidth="0.0" text="Món ăn" wrappingWidth="63.73675537109375">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <JFXComboBox prefHeight="34.0" prefWidth="179.0" promptText="Chọn món ăn" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <JFXButton prefHeight="52.0" prefWidth="260.0" styleClass="buttonAdd" stylesheets="@../Style/dashboardui.css" text="Thêm món ăn vào menu" textFill="#faf2f2">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                   <graphic>
+                                                      <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/add.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </JFXButton>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <HBox fx:id="aside" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #936F46;" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <ImageView fitHeight="631.0" fitWidth="360.0" layoutX="298.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/mainMenu.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <JFXListView layoutX="359.0" layoutY="362.0" prefHeight="311.0" prefWidth="244.0" style="-fx-background-color: #EEE9B0;" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="TablePane" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #666666;">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="113.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;">
+                                 <children>
+                                    <Label prefHeight="43.0" prefWidth="286.0" style="-fx-text-fill: linear-gradient(to right bottom,  #7ed56f,  #28b485);" text="Quản lý bàn ăn" textFill="#ba5aa7">
+                                       <HBox.margin>
+                                          <Insets left="50.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/dinner-table.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Label>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="114.0" prefWidth="1006.0" style="-fx-background-color: #FFFFFF;">
+                                       <children>
+                                          <Text fill="#ba5aa7" strokeType="OUTSIDE" strokeWidth="0.0" text="Tìm kiếm">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <JFXTextField prefHeight="30.0" prefWidth="260.0" promptText="nhập từ khóa tìm kiếm">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </JFXTextField>
+                                          <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/magnifier.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets right="30.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="745.0" prefWidth="1256.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="742.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF;">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ADD TABLE" wrappingWidth="177.11566162109375">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="32.0" />
+                                                   </font>
+                                                   <fill>
+                                                      <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0">
+                                                         <stops>
+                                                            <Stop color="#28358f" />
+                                                            <Stop color="#28358f" offset="0.01526717557251903" />
+                                                            <Stop color="#6494c7" offset="1.0" />
+                                                         </stops>
+                                                      </LinearGradient>
+                                                   </fill>
+                                                </Text>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/dog-tag.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Text fill="#6f4848" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên" wrappingWidth="49.33673095703125">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <JFXTextField prefHeight="38.0" prefWidth="180.0" promptText="Nhập tên món ăn">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                </JFXTextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/text-lines.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Text fill="#6f4848" strokeType="OUTSIDE" strokeWidth="0.0" text="Mô tả" wrappingWidth="49.33673095703125">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <JFXTextField prefHeight="38.0" prefWidth="180.0" promptText="Nhập mô tả">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                </JFXTextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/dinning-table.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <JFXRadioButton text="Bàn thường">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                </JFXRadioButton>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/dining.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <JFXRadioButton text="Bàn cặp đôi">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                </JFXRadioButton>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/family.png" />
+                                                   </image>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <JFXRadioButton text="Bàn gia đình">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                </JFXRadioButton>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/teppanyaki.png" />
+                                                   </image>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <JFXRadioButton text="Bàn hạng sang">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                </JFXRadioButton>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <JFXButton prefHeight="50.0" prefWidth="226.0" styleClass="buttonAdd" stylesheets="@../Style/dashboardui.css" text="Thêm bàn ăn" textFill="#faf2f2">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                   <graphic>
+                                                      <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/dinner-table.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </JFXButton>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <JFXTreeTableView prefHeight="743.0" prefWidth="956.0" VBox.vgrow="ALWAYS">
+                                             <columns>
+                                                <TreeTableColumn prefWidth="128.00006103515625" text="Tên bàn ăn">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/dog-tag.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn minWidth="7.20001220703125" prefWidth="104.0" text="Mô tả">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/text-lines.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="120.800048828125" text="Ngày tạo">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/calendar.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="114.40008544921875" text="Ngày sửa">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/calendarEdit.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="93.5999755859375" text="Order">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/smartphone.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="163.199951171875" text="Loại">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/dinner-table.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="228.800048828125" text="Thao tác">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/test.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                             </columns>
+                                          </JFXTreeTableView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="BillPane" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #666666;">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="113.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;">
+                                 <children>
+                                    <Label prefHeight="43.0" prefWidth="286.0" style="-fx-text-fill: linear-gradient(to right bottom,  #7ed56f,  #28b485);" text="Quản lý hóa đơn" textFill="#ba5aa7">
+                                       <HBox.margin>
+                                          <Insets left="50.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/dinner-table.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Label>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="114.0" prefWidth="1006.0" style="-fx-background-color: #FFFFFF;">
+                                       <children>
+                                          <Text fill="#ba5aa7" strokeType="OUTSIDE" strokeWidth="0.0" text="Tìm kiếm">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <JFXTextField prefHeight="30.0" prefWidth="260.0" promptText="nhập từ khóa tìm kiếm">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </JFXTextField>
+                                          <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/magnifier.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets right="30.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="745.0" prefWidth="1256.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="742.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF;">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ADD BILL" wrappingWidth="177.11566162109375">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="32.0" />
+                                                   </font>
+                                                   <fill>
+                                                      <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0">
+                                                         <stops>
+                                                            <Stop color="#28358f" />
+                                                            <Stop color="#28358f" offset="0.01526717557251903" />
+                                                            <Stop color="#6494c7" offset="1.0" />
+                                                         </stops>
+                                                      </LinearGradient>
+                                                   </fill>
+                                                </Text>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="316.0" prefWidth="300.0">
+                                             <children>
+                                                <JFXListView prefHeight="178.0" prefWidth="200.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/dinning-table.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <JFXRadioButton selected="true" text="Bàn thường">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="tableRadio" />
+                                                   </toggleGroup>
+                                                </JFXRadioButton>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/dining.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <JFXRadioButton text="Bàn cặp đôi" toggleGroup="$tableRadio">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                </JFXRadioButton>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/family.png" />
+                                                   </image>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <JFXRadioButton text="Bàn gia đình" toggleGroup="$tableRadio">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                </JFXRadioButton>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/teppanyaki.png" />
+                                                   </image>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <JFXRadioButton text="Bàn hạng sang" toggleGroup="$tableRadio">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                </JFXRadioButton>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <JFXButton prefHeight="50.0" prefWidth="226.0" styleClass="buttonAdd" stylesheets="@../Style/dashboardui.css" text="Thêm hóa đơn" textFill="#faf2f2">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                   <graphic>
+                                                      <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/bill.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </JFXButton>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <JFXTreeTableView prefHeight="743.0" prefWidth="956.0" VBox.vgrow="ALWAYS">
+                                             <columns>
+                                                <TreeTableColumn prefWidth="128.00006103515625" text="ID Bill">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/dog-tag.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="142.4000244140625" text="Ngày tạo">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/calendar.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="211.2000732421875" text="Các món ăn">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/smartphone.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="247.199951171875" text="Bàn">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/dinner-table.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                                <TreeTableColumn prefWidth="226.4000244140625" text="Tổng tiền">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/money-bag.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </TreeTableColumn>
+                                             </columns>
+                                          </JFXTreeTableView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

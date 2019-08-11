@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" styleClass="parent" stylesheets="@../Style/Login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLDocumentController">
+   <children>
+      <VBox prefHeight="720.0" prefWidth="650.0" styleClass="parent" stylesheets="@../Style/Login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="166.0" prefWidth="650.0">
+               <children>
+                  <Label text="Đến trang chủ" textFill="#928484">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/right-arrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="slideImg" alignment="CENTER" maxWidth="650.0" prefHeight="386.0" prefWidth="650.0">
+               <children>
+                  <ImageView fx:id="slideImgView" fitHeight="405.0" fitWidth="838.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/slide3.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#ClickNode1" styleClass="buttonSlide">
+                     <graphic>
+                               <FontAwesomeIcon fx:id="node1" fill="#3f5cba" glyphName="CIRCLE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></FontAwesomeIcon>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#ClickNode2" styleClass="buttonSlide">
+                     <graphic>
+                        <FontAwesomeIcon fx:id="node2" fill="#b7aaaa" glyphName="CIRCLE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></FontAwesomeIcon>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#ClickNode3" styleClass="buttonSlide">
+                     <graphic>
+                        <FontAwesomeIcon fx:id="node3" fill="#b7aaaa" glyphName="CIRCLE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></FontAwesomeIcon>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="650.0" prefHeight="764.0" prefWidth="430.0">
+         <children>
+            <HBox alignment="TOP_RIGHT" prefHeight="105.0" prefWidth="430.0">
+               <children>
+                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;" stylesheets="@../Style/Login.css">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="MINUS" size="2em">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#dd400c" />
+                                    <Stop color="#d51616" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill></FontAwesomeIcon>
+                     </graphic>
+                  </Button>
+                  <Button id="closeBtn" mnemonicParsing="false" onAction="#CloseApp">
+                     <graphic>
+                        <FontAwesomeIcon id="closeBtn" glyphName="CLOSE" size="2em">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#dd400c" />
+                                    <Stop color="#d51616" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill></FontAwesomeIcon>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/Logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Đăng Nhập">
+                     <font>
+                        <Font name="Montserrat SemiBold" size="35.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#e8660a" />
+                              <Stop color="#e84d0b" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="430.0">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/gmail.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <JFXTextField fx:id="emailTxT" prefHeight="42.0" prefWidth="320.0" promptText="nhập email..." />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="430.0">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/padlock.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <JFXPasswordField fx:id="passwordTxT" prefHeight="42.0" prefWidth="320.0" promptText="nhập mật khẩu" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="430.0">
+               <children>
+                  <JFXCheckBox text="Nhớ mật khẩu">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </JFXCheckBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="94.0" prefWidth="430.0">
+               <children>
+                  <JFXButton fx:id="signInBtn" onAction="#signIn" prefHeight="54.0" prefWidth="317.0" style="-fx-background-color: linear-gradient(to right bottom,  #7ed56f,  #28b485);" stylesheets="@../Style/Login.css" text="Đăng Nhập" textFill="#f8f4f4">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
