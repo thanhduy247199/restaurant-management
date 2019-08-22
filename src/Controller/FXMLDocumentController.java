@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import DAO.userDAO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -149,6 +150,7 @@ public class FXMLDocumentController implements Initializable, Runnable {
     }
     @FXML
     private void signIn(ActionEvent event) throws IOException {
+        String regex = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}";
         if(emailTxT.getText().isEmpty() || passwordTxT.getText().isEmpty())
         {
             NotificationType notificationType = NotificationType.CUSTOM;
@@ -157,8 +159,28 @@ public class FXMLDocumentController implements Initializable, Runnable {
             trayNotification.setAnimationType(AnimationType.POPUP);
             trayNotification.showAndWait();
         }
+        else if( passwordTxT.getText().length() <= 6)
+        {
+            NotificationType notificationType = NotificationType.CUSTOM;
+            TrayNotification trayNotification = new TrayNotification("Cảnh báo", "Mật khẩu tối thiểu 6 ký tự", new Image("/img/warningBee.png"), colorVar.RED );
+            trayNotification.showAndDismiss(Duration.seconds(3));
+            trayNotification.setAnimationType(AnimationType.POPUP);
+            trayNotification.showAndWait();
+        }
+        else if(!emailTxT.getText().matches(regex))
+        {
+            NotificationType notificationType = NotificationType.CUSTOM;
+            TrayNotification trayNotification = new TrayNotification("Cảnh báo", "Email sai định dạng", new Image("/img/warningBee.png"), colorVar.RED );
+            trayNotification.showAndDismiss(Duration.seconds(3));
+            trayNotification.setAnimationType(AnimationType.POPUP);
+            trayNotification.showAndWait();
+        }
+            
         else{
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            userDAO uDAO = new userDAO();
+            if(uDAO.checkLogin(emailTxT.getText(), passwordTxT.getText()) != null)
+            {
+                 Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/Views/DashboardUI.fxml"));
                 Parent loginParent = loader.load();
@@ -171,6 +193,15 @@ public class FXMLDocumentController implements Initializable, Runnable {
                 stageWindow.setTitle("Phần mềm quản lý nhà hàng");
                 stageWindow.show();
                 stage.close();
+            }
+            else
+            {
+                NotificationType notificationType = NotificationType.CUSTOM;
+                TrayNotification trayNotification = new TrayNotification("Cảnh báo", "Sai tài khoản hoặc mật khẩu", new Image("/img/warningBee.png"), colorVar.RED );
+                trayNotification.showAndDismiss(Duration.seconds(3));
+                trayNotification.setAnimationType(AnimationType.POPUP);
+                trayNotification.showAndWait();
+            }
                 
         }
     }
